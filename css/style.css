@@ -18,10 +18,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    min-width: 0;
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -29,7 +31,7 @@ body {
     background-color: #333;
     color: #fff;
     line-height: 1.6;
-    word-break: keep-all;
+    overflow-x: hidden;
 }
 
 body.nav-open {
@@ -48,6 +50,14 @@ button {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .hero {
@@ -75,6 +85,7 @@ a {
     letter-spacing: 1px;
     color: #fff;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .nav {
@@ -107,6 +118,7 @@ a {
     border: none;
     background: transparent;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .menu-toggle span {
@@ -132,6 +144,7 @@ a {
 
 main {
     padding-top: 80px;
+    overflow-x: hidden;
 }
 
 .thumb-placeholder,
@@ -183,6 +196,7 @@ main {
 
 .portfolio {
     padding: 120px 0;
+    overflow-x: hidden;
 }
 
 .portfolio .title {
@@ -214,6 +228,7 @@ main {
     flex: 1;
     cursor: pointer;
     transition: transform 0.35s ease;
+    min-width: 0;
 }
 
 .portfolio .card:hover,
@@ -226,6 +241,7 @@ main {
     margin-top: 18px;
     font-size: 1.1rem;
     font-weight: 700;
+    overflow-wrap: anywhere;
 }
 
 .portfolio .card-thumb {
@@ -302,11 +318,13 @@ main {
     font-weight: 700;
     margin-bottom: 6px;
     color: #fff;
+    overflow-wrap: anywhere;
 }
 
 .portfolio .overlay-text p {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.82);
+    overflow-wrap: anywhere;
 }
 
 .portfolio .card:hover .thumb-placeholder,
@@ -339,6 +357,7 @@ main {
     background-color: #fff;
     color: #333;
     padding: 120px 0;
+    overflow-x: hidden;
 }
 
 .info .inner {
@@ -366,27 +385,30 @@ main {
 .info .righttext h3 {
     font-size: 3rem;
     margin-bottom: 20px;
-    white-space: nowrap;
+    white-space: normal;
     line-height: 1.3;
+    overflow-wrap: anywhere;
 }
 
 .info .righttext p {
     margin-bottom: 14px;
     font-size: 1rem;
     line-height: 1.8;
+    overflow-wrap: anywhere;
 }
 
 .profile {
     padding: 120px 0;
     background-color: #1f1f1f;
     color: #fff;
+    overflow-x: hidden;
 }
 
 .resume-wrap {
     width: min(1280px, 92%);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 260px 1fr 220px;
+    grid-template-columns: 260px minmax(0, 1fr) 220px;
     gap: 42px;
     align-items: start;
 }
@@ -395,6 +417,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 26px;
+    min-width: 0;
 }
 
 .resume-photo {
@@ -419,18 +442,27 @@ main {
     font-size: 1rem;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .resume-center {
     display: flex;
     flex-direction: column;
     gap: 28px;
+    min-width: 0;
+}
+
+.resume-name {
+    min-width: 0;
 }
 
 .resume-name h2 {
     font-size: 3rem;
     font-weight: 700;
     line-height: 1.1;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
 }
 
 .resume-name h2 span {
@@ -438,6 +470,11 @@ main {
     color: rgba(255, 255, 255, 0.35);
     font-weight: 600;
     margin-left: 12px;
+    overflow-wrap: anywhere;
+}
+
+.resume-section {
+    min-width: 0;
 }
 
 .resume-section h3 {
@@ -445,24 +482,29 @@ main {
     font-weight: 700;
     margin-bottom: 10px;
     line-height: 1.2;
+    overflow-wrap: anywhere;
 }
 
 .resume-section p {
     font-size: 1rem;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
+    overflow-wrap: anywhere;
+    word-break: keep-all;
 }
 
 .resume-right {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    min-width: 0;
 }
 
 .resume-top-text {
     font-size: 2.2rem;
     font-weight: 700;
     text-align: right;
+    overflow-wrap: anywhere;
     word-break: break-word;
 }
 
@@ -478,6 +520,7 @@ main {
     background-color: #fff;
     color: #333;
     padding: 120px 0;
+    overflow-x: hidden;
 }
 
 .contact-inner {
@@ -494,14 +537,16 @@ main {
 .contact h2 {
     font-size: 3.4rem;
     margin-bottom: 26px;
+    overflow-wrap: anywhere;
 }
 
 .contact p {
     font-size: 1.08rem;
     margin-bottom: 10px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
-/* modal */
 .portfolio-modal {
     position: fixed;
     inset: 0;
@@ -620,12 +665,14 @@ main {
     padding: 72px 28px 28px;
     background-color: #181818;
     overflow-y: auto;
+    min-width: 0;
 }
 
 .portfolio-modal-text h3 {
     font-size: 2rem;
     margin-bottom: 18px;
     letter-spacing: -0.3px;
+    overflow-wrap: anywhere;
 }
 
 .portfolio-modal-desc {
@@ -634,9 +681,9 @@ main {
     line-height: 1.75;
     font-size: 0.98rem;
     color: rgba(255, 255, 255, 0.85);
+    overflow-wrap: anywhere;
 }
 
-/* 긴 상세페이지 이미지용 */
 .portfolio-modal-media.is-scrollable {
     width: 80%;
     height: 100%;
@@ -683,7 +730,6 @@ main {
 
     .info .righttext h3 {
         font-size: 2.4rem;
-        white-space: normal;
     }
 
     .profile {
@@ -692,7 +738,7 @@ main {
 
     .resume-wrap {
         width: 92%;
-        grid-template-columns: 220px 1fr;
+        grid-template-columns: 220px minmax(0, 1fr);
         gap: 32px;
     }
 
@@ -759,13 +805,16 @@ main {
 
     .logo {
         font-size: 1.15rem;
+        max-width: calc(100% - 64px);
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .menu-toggle {
         display: block;
         position: absolute;
         top: 50%;
-        right: 14px;
+        right: 12px;
         transform: translateY(-50%);
         z-index: 1100;
         width: 42px;
@@ -775,8 +824,7 @@ main {
     .nav {
         display: none;
         position: fixed;
-        top: 0;
-        left: 0;
+        inset: 0;
         width: 100%;
         height: 100vh;
         padding: 110px 24px 40px;
@@ -880,70 +928,121 @@ main {
 
     .info .inner {
         flex-direction: column;
-        gap: 24px;
-        width: 90%;
+        gap: 20px;
+        width: 92%;
     }
 
     .info-placeholder {
-        width: min(320px, 100%);
+        width: min(300px, 100%);
+        margin: 0 auto;
     }
 
     .info .righttext h3 {
-        font-size: 2rem;
-        white-space: normal;
+        font-size: 1.85rem;
+        line-height: 1.45;
+        letter-spacing: -0.02em;
+        margin-bottom: 18px;
+        word-break: keep-all;
     }
 
     .info .righttext p {
-        font-size: 0.95rem;
-        line-height: 1.7;
+        font-size: 0.98rem;
+        line-height: 1.95;
+        word-break: keep-all;
+        margin-bottom: 10px;
     }
 
     .resume-wrap {
         width: 90%;
-        grid-template-columns: 1fr;
-        gap: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
     }
 
     .resume-left {
+        order: 1;
+        width: 100%;
+        min-width: 0;
         gap: 20px;
+        margin-bottom: 28px;
     }
 
-    .resume-photo {
-        max-width: 280px;
+    .resume-center {
+        display: contents;
     }
 
-    .resume-right {
-        order: -1;
-        justify-content: flex-start;
-    }
-
-    .resume-top-text {
-        font-size: 1.4rem;
-        text-align: left;
+    .resume-name {
+        order: 2;
+        width: 100%;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
     }
 
     .resume-name h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        line-height: 1.08;
     }
 
     .resume-name h2 span {
         display: block;
         margin-left: 0;
-        margin-top: 6px;
+        margin-top: 8px;
         font-size: 0.9em;
     }
 
+    .resume-right {
+        order: 3;
+        display: block;
+        width: 100%;
+        min-width: 0;
+        margin: 6px 0 22px 0;
+        grid-column: auto;
+    }
+
+    .resume-top-text {
+        font-size: 0.98rem;
+        line-height: 1.45;
+        text-align: left;
+        color: rgba(255, 255, 255, 0.48);
+        font-weight: 500;
+    }
+
+    .resume-section {
+        order: 4;
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 34px;
+    }
+
+    .resume-photo {
+        width: 100%;
+        max-width: 280px;
+    }
+
     .resume-contact h3 {
-        font-size: 1.8rem;
+        font-size: 1.95rem;
+        margin-bottom: 10px;
+    }
+
+    .resume-contact p {
+        font-size: 1rem;
+        line-height: 1.8;
+        word-break: break-word;
     }
 
     .resume-section h3 {
-        font-size: 1.1rem;
+        font-size: 1.9rem;
+        line-height: 1.15;
+        margin-bottom: 14px;
+        letter-spacing: -0.02em;
     }
 
-    .resume-section p,
-    .resume-contact p {
-        font-size: 0.95rem;
+    .resume-section p {
+        font-size: 1.04rem;
+        line-height: 1.82;
+        overflow-wrap: anywhere;
     }
 
     .interview {
@@ -1018,5 +1117,61 @@ main {
 
     .modal-empty {
         min-height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 0 16px;
+    }
+
+    .menu-toggle {
+        right: 8px;
+    }
+
+    .portfolio .title h2 {
+        font-size: 2rem;
+    }
+
+    .resume-wrap,
+    .info .inner,
+    .contact-inner {
+        width: 92%;
+    }
+
+    .info .inner {
+        width: 93%;
+    }
+
+    .info .righttext h3 {
+        font-size: 1.72rem;
+        line-height: 1.42;
+    }
+
+    .info .righttext p {
+        font-size: 0.96rem;
+        line-height: 1.9;
+    }
+
+    .resume-name h2 {
+        font-size: 2rem;
+    }
+
+    .resume-top-text {
+        font-size: 0.95rem;
+    }
+
+    .resume-contact h3 {
+        font-size: 1.85rem;
+    }
+
+    .resume-section h3 {
+        font-size: 1.75rem;
+    }
+
+    .resume-section p,
+    .resume-contact p,
+    .contact p {
+        font-size: 0.98rem;
     }
 }
